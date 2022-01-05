@@ -27,6 +27,11 @@ public class TransactionImpl implements RocketMQLocalTransactionListener {
 //        return RocketMQLocalTransactionState.UNKNOWN;
     }
 
+
+    /**
+     *
+     * 消息回查，只有在本地事务执行后服务端收不到回复才会触发
+     * */
     @Override
     public RocketMQLocalTransactionState checkLocalTransaction(Message msg) {
         System.out.println(msg);

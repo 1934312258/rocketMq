@@ -34,32 +34,40 @@ public class SpringProducer {
 //            template.syncSendOrderly(topic,message,hashKey);
             template.send(topic,message);
             template.sendOneWay(topic,message);
-            String result = template.sendAndReceive(topic,message,String.class,hashKey);
-            template.sendAndReceive(topic,message, new RocketMQLocalRequestCallback(){
-                @Override
-                public void onSuccess(Object message) {
-                    System.out.println(message);
-                }
+            template.send(topic,message);
+            template.sendOneWay(topic,message);
+            template.send(topic,message);
+            template.sendOneWay(topic,message);template.send(topic,message);
+            template.sendOneWay(topic,message);
+            template.send(topic,message);
+            template.sendOneWay(topic,message);
 
-                @Override
-                public void onException(Throwable e) {
-                    System.out.println(e);
-                }
-            });
-            template.syncSendOrderly(topic,message,hashKey);
-            template.asyncSendOrderly(topic,message,hashKey, new SendCallback(){
-                @Override
-                public void onSuccess(SendResult sendResult) {
-                    if("SEND_OK".equals(sendResult.getSendStatus())){
-                        System.out.println("success");
-                    }
-                }
-
-                @Override
-                public void onException(Throwable e) {
-
-                }
-            });
+//            String result = template.sendAndReceive(topic,message,String.class,hashKey);
+//            template.sendAndReceive(topic,message, new RocketMQLocalRequestCallback(){
+//                @Override
+//                public void onSuccess(Object message) {
+//                    System.out.println(message);
+//                }
+//
+//                @Override
+//                public void onException(Throwable e) {
+//                    System.out.println(e);
+//                }
+//            });
+//            template.syncSendOrderly(topic,message,hashKey);
+//            template.asyncSendOrderly(topic,message,hashKey, new SendCallback(){
+//                @Override
+//                public void onSuccess(SendResult sendResult) {
+//                    if("SEND_OK".equals(sendResult.getSendStatus())){
+//                        System.out.println("success");
+//                    }
+//                }
+//
+//                @Override
+//                public void onException(Throwable e) {
+//
+//                }
+//            });
         }
     }
 

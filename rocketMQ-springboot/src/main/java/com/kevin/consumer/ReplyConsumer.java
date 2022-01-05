@@ -7,6 +7,8 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQReplyListener;
 import org.springframework.stereotype.Component;
 
+import javax.swing.*;
+
 /**
  * <p>
  *
@@ -22,7 +24,7 @@ public class ReplyConsumer implements RocketMQReplyListener<String,String> {
     @Override
     public String onMessage(String message) {
         System.out.println(message);
-        throw new RuntimeException();
-//        return ConsumeConcurrentlyStatus.RECONSUME_LATER.toString();
+//        throw new RuntimeException();
+        return ConsumeConcurrentlyStatus.RECONSUME_LATER.toString();
     }
 }

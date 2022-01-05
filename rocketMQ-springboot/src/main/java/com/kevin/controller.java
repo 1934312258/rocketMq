@@ -29,6 +29,6 @@ public class controller {
 
     @RequestMapping("/test")
     public void test(){
-        transaction.send();
+        producer.send();
     }
 }
